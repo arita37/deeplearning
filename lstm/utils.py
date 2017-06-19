@@ -97,6 +97,7 @@ def visualize_result():
              ('Stacked LSTM, 6 layers', 'save_lstm6layers/log.csv'),
              ('Stacked RNN, 3 layers', 'save_rnn3layers/log.csv'),
              ('Stacked RNN, 6 layers', 'save_rnn6layers/log.csv')]
+
     for i, (k, v) in enumerate(files):
         train_loss = pd.read_csv('./save/tinyshakespeare/{}'.format(v)).groupby('epoch').mean()['train_loss']
         plt.plot(train_loss.index.tolist(), train_loss.tolist(), label=k, lw=2, color=tableau20[i * 2])
